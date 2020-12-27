@@ -1,26 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// import Counter from './firstProject/Counter';
+// import {Provider} from 'react-redux';
+// import {createStore} from "redux";
+// import reducer from './firstProject/reducer';
 
-function App() {
+///secondP
+import Counter2 from './secondP/Counter';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import reducer from './secondP/reducer';
+
+class App extends React.Component {
+
+  
+  store = createStore(reducer);
+ 
+
+render() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+   <Provider store={this.store} > 
+      <Counter2 />
+   </Provider>
   );
+}
 }
 
 export default App;
